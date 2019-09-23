@@ -1,8 +1,13 @@
 import React from 'react';
+import { SignupLoginForm } from './SignupLoginForm';
 
 const LandingPage = () => {
     return(
-        <div>This is the main landing page, to which the marketing site will connect and where the login and signup forms will live.</div>
+        <div className='pagebox'>
+            <SignupLoginForm />
+            <button className='login'>Log In</button>
+            <button className='login'>Sign Up</button>
+        </div>
     )
 }
 
