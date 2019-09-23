@@ -1,10 +1,12 @@
 import React from 'react';
-import { FormikLoginForm } from './SignupLoginForm';
+import { FormikLoginForm, FormikSignupForm } from './SignupLoginForm';
+import { Route, Link } from 'react-router-dom';
 
 const LandingPage = () => {
     return(
         <div className='pagebox'>
-            <FormikLoginForm />
+            <Route exact path='/' component={FormikLoginForm} />
+            <Route path='/signup' component={FormikSignupForm} />
             {/* 
             Make these Links instead
             <button className='login'>Log In</button>
