@@ -1,12 +1,14 @@
 import React from 'react';
-import { SignupLoginForm } from './SignupLoginForm';
+import { FormikLoginForm } from './SignupLoginForm';
 
 const LandingPage = () => {
     return(
         <div className='pagebox'>
-            <SignupLoginForm />
+            <FormikLoginForm />
+            {/* 
+            Make these Links instead
             <button className='login'>Log In</button>
-            <button className='login'>Sign Up</button>
+            <button className='login'>Sign Up</button> */}
         </div>
     )
 }
