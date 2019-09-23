@@ -1,8 +1,27 @@
-import React from 'react'
+import React from 'react';
+import { Route, NavLink } from 'react-router-dom';
+import MyCard from './MyCard';
+import CardCollection from './CardCollection';
+import AddCard from './AddCard';
 
 const Home = () => {
     return(
-        <div>This is the user's home page, to which they will be routed after login/signup and which will display the other components. A routed Navbar will go here.</div>
+        <div className='pagebox'>
+          
+            <div className='home'>
+            <NavLink to='/mycard'>My Card </NavLink>
+            <NavLink to='/collection'>Collected Cards </NavLink>
+            <NavLink to ='/add'>Add a Card </NavLink>
+            </div>
+
+            <Route path='/mycard' render={() => <MyCard />}/>
+            <Route path='/collection' render={() => <CardCollection />}/>
+            <Route path='/add' render={() => <AddCard />}/>
+
+
+   
+        </div>
+
     )
 }
 
