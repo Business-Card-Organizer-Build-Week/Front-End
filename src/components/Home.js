@@ -10,11 +10,6 @@ const Home = () => {
         <div className='pagebox'>
           
             <Navbar />
-            <div className='home'>
-            <NavLink to='/mycard'>My Card </NavLink>
-            <NavLink to='/collection'>Collected Cards </NavLink>
-            <NavLink to ='/add'>Add a Card </NavLink>
-            </div>
 
             <Route path='/mycard' render={() => <MyCard />}/>
             <Route path='/collection' render={() => <CardCollection />}/>
