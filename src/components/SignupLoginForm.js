@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import { withFormik, Form, Field } from "formik";
 import * as yup from "yup";
+import axios from 'axios';
 import {axiosWithAuth} from "./axiosWithAuth";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
-const LoginForm = (props) => {
+const LoginForm = () => {
  
   return (
     <div className="login-form">
@@ -56,7 +57,7 @@ export const FormikLoginForm = withFormik({
       .then(res => {
         //   this is the token, need to figure out how we want to pass this around
         localStorage.setItem("token", res.data.access_token)
-        this.props.history.push('/home')
+        this.props.history.push('/')
         console.log(res.data.access_token);
       }).catch(err => {
           console.error(err);
@@ -82,7 +83,7 @@ const SignupForm = () => {
         </label>
         <label>
           Confirm Password:
-          <Field type="password" name="password" />
+          <Field type="password" name="passwordConfirmation" />
         </label>
         <button type="submit" className="login">
           Sign Up
@@ -103,5 +104,10 @@ export const FormikSignupForm = withFormik({
   },
   //============Validation Schema==========
   //============End Validation Schema======
-  handleSubmit(values) {}
+  handleSubmit(values) {
+      axios.post('https://cardorganizer.herokuapp.com/api/newuser', values).then(res => {
+          console.log(res);
+          this.props.history.push('/')
+      })
+  }
 })(SignupForm);

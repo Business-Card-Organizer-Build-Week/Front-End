@@ -1,15 +1,21 @@
-import React from 'react';
-import './App.css';
-import { Route } from 'react-router-dom';
-
-import LandingPage from './components/LandingPage';
-import Home from './components/Home';
+import React from "react";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import PrivateRoute from './components/PrivateRoute'
+import { FormikLoginForm, FormikSignupForm } from './components/SignupLoginForm';
+import Home from "./components/Home";
 
 function App() {
   return (
     <div className="App">
-      < Route exact to='/' component={LandingPage} />
-      {/* <Route to='/home' component={Home} /> */}
+      <Switch>
+     
+        <PrivateRoute path="/home" component={Home} />
+          
+        <Route exact path='/' component={FormikLoginForm} />
+        <Route path='/signup' component={FormikSignupForm} />
+
+      </Switch>
     </div>
   );
 }
