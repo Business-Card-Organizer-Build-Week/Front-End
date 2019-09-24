@@ -8,16 +8,15 @@ const CardStyle2 = ({ data }) => {
       <Card>
         <Card.Content>
           <Card.Header>{data.fname} {data.lname}</Card.Header>
-          <Card.Meta>{data.title}</Card.Meta>
+          <Card.Meta>{data.title} - {data.busname}</Card.Meta>
           <Card.Description>
             <p>{data.userphone}</p>
             <p>{data.useremail}</p>
             <p>{data.useraddress}</p>
-
+            <p>{data.usercity},{data.userState} {data.userzip}</p>
 
           </Card.Description>
         </Card.Content>
-        <Card.Content extra></Card.Content>
       </Card>
     
     )

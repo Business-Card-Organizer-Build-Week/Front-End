@@ -3,8 +3,6 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute'
 import { FormikLoginForm, FormikSignupForm } from './components/SignupLoginForm';
-
-import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
 
 function App() {
