@@ -3,11 +3,13 @@ import { Route, NavLink } from 'react-router-dom';
 import MyCard from './MyCard';
 import CardCollection from './CardCollection';
 import AddCard from './AddCard';
+import Navbar from './Navbar';
 
 const Home = () => {
     return(
         <div className='pagebox'>
           
+            <Navbar />
             <div className='home'>
             <NavLink to='/mycard'>My Card </NavLink>
             <NavLink to='/collection'>Collected Cards </NavLink>
