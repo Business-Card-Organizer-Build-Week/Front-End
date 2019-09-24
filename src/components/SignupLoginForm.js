@@ -40,7 +40,7 @@ export const FormikLoginForm = withFormik({
   //============Validation Schema==========
   //============End Validation Schema======
   
-  handleSubmit(values) {
+  handleSubmit(values, {props}) {
    
     axiosWithAuth()
       .post(
@@ -54,13 +54,15 @@ export const FormikLoginForm = withFormik({
           }
         }
       )
+    //   if()
       .then(res => {
         //   this is the token, need to figure out how we want to pass this around
         localStorage.setItem("token", res.data.access_token)
-        this.props.history.push('/')
+        
         console.log(res.data.access_token);
+        props.history.push('/home')
       }).catch(err => {
-          console.error(err);
+          console.error("login error", err);
       });
   }
 })(LoginForm);
@@ -104,10 +106,12 @@ export const FormikSignupForm = withFormik({
   },
   //============Validation Schema==========
   //============End Validation Schema======
-  handleSubmit(values) {
+  handleSubmit(values, {props}) {
       axios.post('https://cardorganizer.herokuapp.com/api/newuser', values).then(res => {
           console.log(res);
-          this.props.history.push('/')
+          props.history.push("/")
+      }).catch(err => {
+          console.log("submit error", err)
       })
   }
 })(SignupForm);
