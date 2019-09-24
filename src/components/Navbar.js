@@ -9,9 +9,9 @@ const Navbar = () => (
       <Dropdown item icon='bars' simple>
         <Dropdown.Menu>
           
-          <Dropdown.Item><NavLink to='/mycard'>My Card </NavLink></Dropdown.Item>
-          <Dropdown.Item><NavLink to='/collection'>Collected Cards </NavLink></Dropdown.Item>
-          <Dropdown.Item><NavLink to ='/add'>Add a Card </NavLink></Dropdown.Item>
+          <Dropdown.Item><NavLink to='/home'>My Card </NavLink></Dropdown.Item>
+          <Dropdown.Item><NavLink to='/home/collection'>Collected Cards </NavLink></Dropdown.Item>
+          <Dropdown.Item><NavLink to ='/home/add'>Add a Card </NavLink></Dropdown.Item>
           
         </Dropdown.Menu>
       </Dropdown>

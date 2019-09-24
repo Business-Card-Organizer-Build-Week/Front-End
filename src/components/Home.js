@@ -26,9 +26,9 @@ const Home = () => {
           
             <Navbar />
 
-            <MyCard data={fakeuserdata}/>
-            <Route path='/collection' render={() => <CardCollection />}/>
-            <Route path='/add' render={() => <AddCard />}/>
+            <Route exact path='/home' render={() => <MyCard data={fakeuserdata}/>}/>
+            <Route path='/home/collection' render={() => <CardCollection />}/>
+            <Route path='/home/add' render={() => <AddCard />}/>
 
 
    
