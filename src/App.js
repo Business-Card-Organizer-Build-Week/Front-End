@@ -8,8 +8,8 @@ import Home from './components/Home';
 function App() {
   return (
     <div className="App">
-      <exact Route to='/' component={LandingPage} />
-      <Route to='/home' component={Home} />
+      < Route exact to='/' component={LandingPage} />
+      {/* <Route to='/home' component={Home} /> */}
     </div>
   );
 }
