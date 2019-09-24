@@ -1,9 +1,12 @@
 import React from 'react';
-import { Card, Image} from 'semantic-ui-react';
+import CardStyle2 from './CardStyle2';
 
-const MyCard = () => {
+const MyCard = ({ data }) => {
+    
     return(
-        <div>This is the user's personal card. There will be an edit button that routes to the edit form, and an onClick which routes to their QR code. </div>
+        <div>
+            <CardStyle2 data={data} />
+        </div>
     )
 }
 
