@@ -10,4 +10,4 @@ const MyCard = ({ data }) => {
     )
 }
 
-export default MyCard
+export default MyCard;
