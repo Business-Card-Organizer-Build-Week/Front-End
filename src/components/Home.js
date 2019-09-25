@@ -1,32 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Route } from 'react-router-dom';
 import MyCard from './MyCard';
 import CardCollection from './CardCollection';
 import AddCard from './AddCard';
 import Navbar from './Navbar';
+import { axiosWithAuth } from './axiosWithAuth'
+import PrivateRoute  from './PrivateRoute'
 
-const fakeuserdata = {
-    "fname": "John",
-    "lname": "Smith",
-    "busname": "TestBusName",
-    "title": "Title",
-    "useremail": "testAddContact@test.com",
-    "userphone": "5555555555",
-    "useraddress": "TestAddress",
-    "usercity": "Test City",
-    "userState": "ST",
-    "userzip": "55555",
-    "usercontacttype": {
-        "contacttypeid": 4 
-                       }
-}
-const Home = () => {
+// Need id off props from somewhere
+const Home = (id) => {
+    const [myCard, setMyCard] = useState(null);
+    axiosWithAuth().get(`https://cardorganizer.herokuapp.com/api/users/${id}`)
     return(
         <div className='pagebox'>
+            
           
             <Navbar />
 
-            <Route exact path='/home' render={() => <MyCard data={fakeuserdata}/>}/>
             <Route path='/home/collection' render={() => <CardCollection />}/>
             <Route path='/home/add' render={() => <AddCard />}/>
 

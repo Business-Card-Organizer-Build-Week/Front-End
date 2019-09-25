@@ -1,12 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as yup from "yup";
-import axios from 'axios';
-import {axiosWithAuth} from "./axiosWithAuth";
+import axios from "axios";
+import { axiosWithAuth } from "./axiosWithAuth";
 import { Link, Redirect } from "react-router-dom";
 
 const LoginForm = () => {
- 
   return (
     <div className="login-form">
       <Form>
@@ -33,15 +32,13 @@ export const FormikLoginForm = withFormik({
   mapPropsToValues({ username, password }) {
     return {
       username: username || "",
-      password: password || "",
-      
+      password: password || ""
     };
   },
   //============Validation Schema==========
   //============End Validation Schema======
-  
-  handleSubmit(values, {props}) {
-   
+
+  handleSubmit(values, { props }) {
     axiosWithAuth()
       .post(
         "https://cardorganizer.herokuapp.com/api/login",
@@ -54,15 +51,16 @@ export const FormikLoginForm = withFormik({
           }
         }
       )
-    //   if()
+      //   if()
       .then(res => {
         //   this is the token, need to figure out how we want to pass this around
-        localStorage.setItem("token", res.data.access_token)
-        
+        localStorage.setItem("token", res.data.access_token);
+
         console.log(res.data.access_token);
-        props.history.push('/home')
-      }).catch(err => {
-          console.error("login error", err);
+        props.history.push("/home");
+      })
+      .catch(err => {
+        console.error("login error", err);
       });
   }
 })(LoginForm);
@@ -106,12 +104,15 @@ export const FormikSignupForm = withFormik({
   },
   //============Validation Schema==========
   //============End Validation Schema======
-  handleSubmit(values, {props}) {
-      axios.post('https://cardorganizer.herokuapp.com/api/newuser', values).then(res => {
-          console.log(res);
-          props.history.push("/")
-      }).catch(err => {
-          console.log("submit error", err)
+  handleSubmit(values, { props }) {
+    axios
+      .post("https://cardorganizer.herokuapp.com/api/newuser", values)
+      .then(res => {
+        console.log(res);
+        props.history.push("/");
       })
+      .catch(err => {
+        console.log("submit error", err);
+      });
   }
 })(SignupForm);
