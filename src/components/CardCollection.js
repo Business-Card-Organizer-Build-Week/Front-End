@@ -41,10 +41,10 @@ const fakecontacts = [
 
 ];
 
-const CardCollection = () => {
+const CardCollection = ({contacts}) => {
     return(
         <div>
-           {fakecontacts.map(contact => (
+           {[contacts].map(contact => (
                <CardStyle2 data={contact}/>))}
         </div>
     )
