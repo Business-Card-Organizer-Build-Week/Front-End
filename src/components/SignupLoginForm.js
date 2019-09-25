@@ -39,6 +39,7 @@ export const FormikLoginForm = withFormik({
   //============End Validation Schema======
 
   handleSubmit(values, { props }) {
+    //   console.log("I'm values", values)
     axiosWithAuth()
       .post(
         "https://cardorganizer.herokuapp.com/api/login",
@@ -56,7 +57,7 @@ export const FormikLoginForm = withFormik({
         //   this is the token, need to figure out how we want to pass this around
         localStorage.setItem("token", res.data.access_token);
 
-        console.log(res.data.access_token);
+        console.log(res.data);
         props.history.push("/home");
       })
       .catch(err => {

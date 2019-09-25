@@ -14,8 +14,8 @@ function App() {
     <div className="App">
       <Switch>
         
-      <PrivateRoute exact path='/home' render={() => <MyCard props={myCard} />}/>
-
+      
+        <Route path="/home" component={Home} />
         <Route exact path="/" component={FormikLoginForm} />
         <Route path="/signup" component={FormikSignupForm} />
       </Switch>
