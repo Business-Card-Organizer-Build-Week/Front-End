@@ -11,23 +11,27 @@ import PrivateRoute from "./PrivateRoute";
 const Home = () => {
   const [card, setCard] = useState([]);
   const [contacts, setContacts] = useState([]);
+  const [fetch, setFetch] = useState(true);
+  const id = localStorage.getItem("USERID")
   useEffect(() => {
     axiosWithAuth()
-      .get(`https://cardorganizer.herokuapp.com/api/users/user/7`)
+      .get(`https://cardorganizer.herokuapp.com/api/users/user/${id}`)
       .then(res => {
-        console.log("card res", res.data.savedContacts);
+        // console.log("card res", res.data.savedContacts);
         setCard(res.data);
-        console.log("inside axios home", card);
-      })
-      .then(res => {
         setContacts(res.data.savedContacts);
+        setFetch(false);
+        // console.log("inside axios home", card);
       })
+
       .catch(err => {
         console.log("Error", err);
       });
-  }, []);
-
-  console.log("this is the current card's contacts:", card.savedContacts);
+  }, [fetch]);
+// setTimeout(()=>{
+//     setFetch(!fetch)
+// }, 2000)
+  console.log("this is the current card's contacts:", contacts);
   return (
     <div className="pagebox">
       <Navbar />
