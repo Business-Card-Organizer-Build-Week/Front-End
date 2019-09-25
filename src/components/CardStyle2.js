@@ -6,12 +6,10 @@ const CardStyle2 = ({ data, user }) => {
   return(
         
       <div className='card'>
-        <div className='icon'>{user='me' ? <Icon
-        floated='right'
+        <div className='edit-icon'>{user='me' ? <Icon
         size='small'
         name='edit'
         /> : <Icon
-        floated='right'
         size='small'
         name='trash alternate'
         />}</div>
@@ -21,11 +19,11 @@ const CardStyle2 = ({ data, user }) => {
       
           <div className='header'>{data.fname} {data.lname}</div>
           <div className='meta'>{data.title} - {data.busname}</div>
+    <hr className='divider'/>
           <div className='description'>
-            <p>{data.userphone}</p>
-            <p>{data.useremail}</p>
-            <p>{data.useraddress}</p>
-            <p>{data.usercity},{data.userState} {data.userzip}</p>
+            <p><Icon name='mobile' /> {data.userphone}</p>
+            <p><Icon name='keyboard' /> {data.useremail}</p>
+            <p><Icon name='envelope' />{data.useraddress} {data.usercity},{data.userState} {data.userzip}</p>
 
           </div>
         </div>

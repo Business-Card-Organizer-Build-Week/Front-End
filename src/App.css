@@ -2,7 +2,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 67.5%;
   color: #0A0908;
 }
 
@@ -55,6 +55,7 @@ img {
   background-color: #F2F4F3;
   width: 60vw;
   height:33vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-content{
   display: flex;
@@ -65,9 +66,33 @@ img {
 
 }
 
-.icon{
+.edit-icon{
   display: block;
   float: right;
-  margin-top: 5px;
+  margin-right: 5px;
  
 }
+
+.header{
+  Font-Family: 'Questrial', Sans-Serif;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.meta{
+  Font-Family: 'Questrial', Sans-Serif;
+  font-size: 1em;
+  font-style: italic;
+  margin-top: 10px;
+  
+}
+
+hr{
+  border: 0;
+  height: 1px;
+  width: 80%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));}
+
+  .description{
+    Font-Family: 'Alegreya', serif;
+  }
