@@ -1,23 +1,33 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
-const CardStyle2 = ({ data }) => {
+const CardStyle2 = ({ data, user }) => {
   console.log(data)  
   return(
         
-      <Card>
-        <Card.Content>
-          <Card.Header>{data.fname} {data.lname}</Card.Header>
-          <Card.Meta>{data.title} - {data.busname}</Card.Meta>
-          <Card.Description>
-            <p>{data.userphone}</p>
-            <p>{data.useremail}</p>
-            <p>{data.useraddress}</p>
-            <p>{data.usercity},{data.userState} {data.userzip}</p>
+      <div className='card'>
+        <div className='edit-icon'>{user='me' ? <Icon
+        size='small'
+        name='edit'
+        /> : <Icon
+        size='small'
+        name='trash alternate'
+        />}</div>
+        <div className='card-content'>
+        
+        
+      
+          <div className='header'>{data.fname} {data.lname}</div>
+          <div className='meta'>{data.title} - {data.busname}</div>
+    <hr className='divider'/>
+          <div className='description'>
+            <p><Icon name='mobile' /> {data.userphone}</p>
+            <p><Icon name='keyboard' /> {data.useremail}</p>
+            <p><Icon name='envelope' />{data.useraddress} {data.usercity},{data.userState} {data.userzip}</p>
 
-          </Card.Description>
-        </Card.Content>
-      </Card>
+          </div>
+        </div>
+      </div>
     
     )
     

@@ -8,6 +8,27 @@ import { axiosWithAuth } from "./axiosWithAuth";
 import PrivateRoute from "./PrivateRoute";
 
 // Need id off props from somewhere
+
+//replaced 'card' in props to 'fakedata' for testing
+const fakedata = {
+  "username": "admin",
+  "fname": "John",
+  "lname": "Smith",
+  "busname": "TestBusName",
+  "title": "Title",
+  "contactid": 8,
+  "useremail": "test@test.com",
+  "userphone": "5555555555",
+  "useraddress": "TestAddress",
+  "usercity": "Test City",
+  "userState": "ST",
+  "userzip": "55555",
+  "usercontacttype": {
+      "contacttypeid": 4,
+      "contacttype": "Business"
+  }
+};
+
 const Home = () => {
   const [card, setCard] = useState([]);
   const [contacts, setContacts] = useState([]);
@@ -35,7 +56,7 @@ const Home = () => {
   return (
     <div className="pagebox">
       <Navbar />
-      <Route exact path="/home" render={() => <MyCard data={card} />} />
+      <Route exact path="/home" render={() => <MyCard data={fakedata} />} />
       <Route
         path="/home/collection"
         render={() => <CardCollection contacts={contacts} />}
