@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import { axiosWithAuth } from "./axiosWithAuth";
 
 const AddCard = () => {
-  const [input, setInput] = useState({number: null});
-    const handleChange = e => {
+  const [input, setInput] = useState({ number: null });
+  const handleChange = e => {
     console.log(input);
-    setInput({...input, [e.target.name]: e.target.value});
+    setInput({ ...input, [e.target.name]: e.target.value });
   };
-  const handleSubmit = () =>{
+  console.log("input recheck", input)
+  const handleSubmit = e => {
+    e.preventDefault();
     const id = localStorage.getItem("USERID");
-    axiosWithAuth().post(`https://cardorganizer.herokuapp.com/api/users/${id}/contact/${input}`).then(res=>{
-        console.log(res)
-    })
-  }
+    axiosWithAuth()
+      .post(
+        `https://cardorganizer.herokuapp.com/api/users/${id}/contact/${input}`
+      )
+      .then(res => {
+        console.log(res);
+      }).catch(err=>{console.log("error adding", err)});
+  };
   return (
     <>
       <form onSubmit={handleSubmit}>
