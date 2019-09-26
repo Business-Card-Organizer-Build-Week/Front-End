@@ -12,10 +12,10 @@ import CardStyle2 from './CardStyle2';
 //     )
 // }
 
-const CardCollection = () => {
+const CardCollection = contacts => {
     return(
         <div className='collection'>
-           {fakecontacts.map(contact => (
+           {contacts.map(contact => (
                <CardStyle2 data={contact} />))}
         </div>
     )

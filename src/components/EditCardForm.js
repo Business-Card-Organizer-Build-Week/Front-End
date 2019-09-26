@@ -2,7 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import { axiosWithAuth } from "./axiosWithAuth";
 
-const EditCardForm = () => {
+export const EditCardForm = () => {
   return (
     <div className="edit-form">
       <Form>
