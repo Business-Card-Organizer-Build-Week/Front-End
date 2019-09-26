@@ -7,11 +7,11 @@ import { UserContext } from "../contexts/UserContext";
 const CardCollection = () => {
   const context = useContext(UserContext);
   console.log("checking context: ", context.savedContacts);
-
   return (
     <div className="collection">
       {context.savedContacts.map((card) => (
-        <CardStyle2 />
+       
+        <CardStyle2 key={card.contactid} />
       ))}
     </div>
   );
