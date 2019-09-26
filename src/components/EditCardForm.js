@@ -15,10 +15,10 @@ const EditCardForm = () => {
           Last Name:
           <Field type="text" name="lname" />
         </label>
-        {/* <label>
+        <label>
           Title:
           <Field type="text" name="title" />
-        </label> */}
+        </label>
         <label>
           Company:
           <Field type="text" name="busname" />
@@ -47,18 +47,18 @@ const EditCardForm = () => {
           Zip Code:
           <Field type="text" name="userzip" />
         </label>
-        <button>Submit</button> <button>Cancel</button>
+        <button type='submit'>Submit</button> <button>Cancel</button>
       </Form>
     </div>
   );
 };
 
-const id = localStorage.getItem("USERID");
+const id = localStorage.getItem("CONTACTID");
 export const FormikEditForm = withFormik({
   mapPropsToValues({
     fname,
     lname,
-    // title,
+    title,
     busname,
     userphone,
     useremail,
@@ -70,7 +70,7 @@ export const FormikEditForm = withFormik({
     return {
       fname: fname || "",
       lname: lname || "",
-      // title: title || "",
+      title: title || "",
       busname: busname || "",
       userphone: userphone || "",
       useremail: useremail || "",
