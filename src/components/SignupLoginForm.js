@@ -4,26 +4,30 @@ import * as yup from "yup";
 import axios from "axios";
 import { axiosWithAuth } from "./axiosWithAuth";
 import { Link, Redirect } from "react-router-dom";
+import { Icon } from "semantic-ui-react";
 
 const LoginForm = () => {
   return (
     <div className="login-form">
-      <Form>
-        <label>
-          Username:
+      <div className="form-style">
+        <h2>LOG IN</h2>
+        <Form>
+          <span className='fields'><label>
+          <Icon name="user" /> <span className='textlabel'>Username:</span>
           <Field type="text" name="username" />
-        </label>
-        <label>
-          Password:
+          </label></span>
+          <span className='fields'><label>
+          <Icon name="lock" /> <span className='textlabel'>Password:</span>
           <Field type="password" name="password" />
-        </label>
-        <button type="submit" className="login">
-          Log In
-        </button>
-      </Form>
-      <p>
-        Not a user? Sign up for a free account <Link to="/signup">here</Link>{" "}
-      </p>
+          </label></span>
+          <button type="submit" className="login">
+            Log In
+          </button>
+        </Form>
+        <p>
+          Not a user? Sign up for a free account <Link to="/signup">here</Link>{" "}
+        </p>
+      </div>
     </div>
   );
 };
@@ -39,7 +43,7 @@ export const FormikLoginForm = withFormik({
   //============End Validation Schema======
 
   handleSubmit(values, { props }) {
-      console.log("I'm values", values)
+    console.log("I'm values", values);
     axiosWithAuth()
       .post(
         "https://cardorganizer.herokuapp.com/api/login",
@@ -57,7 +61,7 @@ export const FormikLoginForm = withFormik({
         //   this is the token, need to figure out how we want to pass this around
         localStorage.setItem("token", res.data.access_token);
 
-        console.log("values after call",values);
+        console.log("values after call", values);
       })
       .then(res => {
         console.log("2nd then fired");
@@ -85,6 +89,8 @@ export const FormikLoginForm = withFormik({
 const SignupForm = () => {
   return (
     <div className="signup-form">
+              <h2>SIGN UP</h2>
+
       <Form>
         <label>
           Email:
