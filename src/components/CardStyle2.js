@@ -1,36 +1,51 @@
-import React from 'react';
-import { Icon } from 'semantic-ui-react';
+import React, { useContext } from "react";
+import { Icon, Modal, Button } from "semantic-ui-react";
+import { Link, Route } from "react-router-dom";
+import  EditCardForm  from "./EditCardForm";
+import { UserContext } from '../contexts/UserContext';
 
-const CardStyle2 = ({ data, user }) => {
-  console.log(data)  
-  return(
-        
-      <div className='card'>
-        <div className='edit-icon'>{user='me' ? <Icon
-        size='small'
-        name='edit'
-        /> : <Icon
-        size='small'
-        name='trash alternate'
-        />}</div>
-        <div className='card-content'>
-        
-        
+
+const CardStyle2 = () => {
+  // console.log("cardstyle contact check",data.userContacts);
+  // const userContacts = [data.userContacts];
+  // console.log([...userContacts])
+// const [editModal, toggleEditModal]=useModali();
+const context = useContext(UserContext);
+console.log(context)
+  // console.log("cardstyle datachecK",data);
+  return (
+    <div className="card">
+      <Link to='/editform'>
+      <Icon name="edit" size="big" />
+      </Link>
+     
       
-          <div className='header'>{data.fname} {data.lname}</div>
-          <div className='meta'>{data.title} - {data.busname}</div>
-    <hr className='divider'/>
-          <div className='description'>
-            <p><Icon name='mobile' /> {data.userphone}</p>
-            <p><Icon name='keyboard' /> {data.useremail}</p>
-            <p><Icon name='envelope' />{data.useraddress} {data.usercity},{data.userState} {data.userzip}</p>
-
-          </div>
+      <div className="card-content">
+        <div className="header">
+          {context.userContact.fname} {context.userContact.lname}
+        </div>
+        <div className="meta">
+          {context.userContact.title} - {context.userContact.busname}
+        </div>
+        <hr className="divider" />
+        <div className="description">
+          <p>
+            <Icon name="mobile" /> {context.userContact.userphone}
+          </p>
+          <p>
+            <Icon name="keyboard" /> {context.userContact.useremail}
+          </p>
+          <p>
+            <Icon name="envelope" />
+            {context.userContact.useraddress} {context.userContact.usercity},{context.userContact.userState} {context.userContact.userzip}
+          </p>
         </div>
       </div>
-    
-    )
-    
-}
+    </div>
+  );
 
-export default CardStyle2
+  
+};
+
+
+export default CardStyle2;

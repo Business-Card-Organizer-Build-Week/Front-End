@@ -15,20 +15,20 @@ const EditCardForm = () => {
           Last Name:
           <Field type="text" name="lname" />
         </label>
-        <label>
+        {/* <label>
           Title:
           <Field type="text" name="title" />
-        </label>
+        </label> */}
         <label>
           Company:
           <Field type="text" name="busname" />
         </label>
         <label>
-          First Name:
+          Phone:
           <Field type="tel" name="userphone" />
         </label>
         <label>
-          First Name:
+          Email:
           <Field type="email" name="useremail" />
         </label>
         <label>
@@ -52,12 +52,13 @@ const EditCardForm = () => {
     </div>
   );
 };
+
 const id = localStorage.getItem("USERID");
 export const FormikEditForm = withFormik({
   mapPropsToValues({
     fname,
     lname,
-    title,
+    // title,
     busname,
     userphone,
     useremail,
@@ -69,7 +70,7 @@ export const FormikEditForm = withFormik({
     return {
       fname: fname || "",
       lname: lname || "",
-      title: title || "",
+      // title: title || "",
       busname: busname || "",
       userphone: userphone || "",
       useremail: useremail || "",
@@ -82,6 +83,7 @@ export const FormikEditForm = withFormik({
   //========Validation Schema========
   //========End Validation Schema====
   handleSubmit(values, { props }) {
+    console.log("values on put", values)
     axiosWithAuth()
       .put(`https://cardorganizer.herokuapp.com/api/contact/${id}`, values)
       .then(res => {

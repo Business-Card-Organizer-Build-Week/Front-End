@@ -39,7 +39,7 @@ export const FormikLoginForm = withFormik({
   //============End Validation Schema======
 
   handleSubmit(values, { props }) {
-    //   console.log("I'm values", values)
+      console.log("I'm values", values)
     axiosWithAuth()
       .post(
         "https://cardorganizer.herokuapp.com/api/login",
@@ -57,20 +57,22 @@ export const FormikLoginForm = withFormik({
         //   this is the token, need to figure out how we want to pass this around
         localStorage.setItem("token", res.data.access_token);
 
-        console.log(res.data);
+        console.log("values after call",values);
       })
       .then(res => {
-        console.log("2nd then fired")
-        axiosWithAuth().get(
-          `https://cardorganizer.herokuapp.com/api/users/name/${values.username}`
-        ).then(res => {
-          // console.log("response", res.data.userid);
-          localStorage.setItem("USERID", res.data.userid)
-          // localStorage.setItem("USERID", )
-          props.history.push("/home");
-        });
+        console.log("2nd then fired");
+        axiosWithAuth()
+          .get(
+            `https://cardorganizer.herokuapp.com/api/users/name/${values.username}`
+          )
+          .then(res => {
+            console.log("response", res);
+            localStorage.setItem("USERID", res.data.userid);
+            // localStorage.setItem("USERID", )
+            props.history.push("/home");
+          });
       })
-     
+
       .catch(err => {
         console.log("login error in id call", err);
       })
