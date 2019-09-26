@@ -88,31 +88,33 @@ export const FormikLoginForm = withFormik({
 
 const SignupForm = () => {
   return (
-    <div className="signup-form">
-              <h2>SIGN UP</h2>
-
-      <Form>
-        <label>
-          Email:
-          <Field type="email" name="email" />
-        </label>
-        <label>
-          Username:
-          <Field type="text" name="username" />
-        </label>
-        <label>
-          Password:
-          <Field type="password" name="password" />
-        </label>
-        <label>
-          Confirm Password:
-          <Field type="password" name="passwordConfirmation" />
-        </label>
-        <button type="submit" className="login">
-          Sign Up
-        </button>
-        Already a Member? Login <Link to="/">here</Link>.
-      </Form>
+    <div className="login-form">
+              <div className='form-style'><h2>SIGN UP</h2>
+              
+              <Form>
+              <span className='fields'><label>
+              <span className='textlabel'>Email:</span>
+              <Field type="email" name="email" />
+              </label></span>
+              <span className='fields'><label>
+              <span className='textlabel'>Username:</span>
+              <Field type="text" name="username" />
+              </label></span>
+              <span className='fields'><label>
+              <span className='textlabel'>Password:</span>
+              <Field type="password" name="password" />
+              </label></span>
+              <span className='fields'><label>
+              <span className='textlabel'>Confirm Password:</span>
+              <Field type="password" name="passwordConfirmation" />
+              </label></span>
+              <button type="submit" className="login">
+              Sign Up
+              </button>
+              <p>
+                Already a Member? Login <Link to="/">here</Link>.
+              </p>
+              </Form></div>
     </div>
   );
 };
