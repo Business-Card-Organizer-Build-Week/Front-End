@@ -1,48 +1,50 @@
-import React from "react";
-import { Icon } from "semantic-ui-react";
+import React, { useContext } from "react";
+import { Icon, Modal, Button } from "semantic-ui-react";
 import { Link, Route } from "react-router-dom";
-import { EditCardForm } from "./EditCardForm";
-import Modali, {useModali} from "modali";
+import  EditCardForm  from "./EditCardForm";
+import { UserContext } from '../contexts/UserContext';
 
-const CardStyle2 = ({ data }) => {
-  console.log("cardstyle contact check",data.userContacts);
-  const userContacts = [data.userContacts];
-  console.log([userContacts])
-const [editModal, toggleEditModal]= useModali();
 
-  console.log("cardstyle datachecK",data);
+const CardStyle2 = () => {
+  // console.log("cardstyle contact check",data.userContacts);
+  // const userContacts = [data.userContacts];
+  // console.log([...userContacts])
+// const [editModal, toggleEditModal]=useModali();
+const context = useContext(UserContext);
+console.log(context)
+  // console.log("cardstyle datachecK",data);
   return (
     <div className="card">
-      {/* <Link to="/editform"> */}
-        <div className="edit-icon" onClick={toggleEditModal}></div>
-      {/* </Link> */}
-      {/* <>
-        <Route path="/editform" render={() => <EditCardForm />} />
-      </> */}
+      <Link to='/editform'>
+      <Icon name="edit" size="big" />
+      </Link>
+     
       
       <div className="card-content">
         <div className="header">
-          {data.fname} {data.lname}
+          {context.userContact.fname} {context.userContact.lname}
         </div>
         <div className="meta">
-          {data.title} - {data.busname}
+          {context.userContact.title} - {context.userContact.busname}
         </div>
         <hr className="divider" />
         <div className="description">
           <p>
-            <Icon name="mobile" /> {userContacts[0].userphone}
+            <Icon name="mobile" /> {context.userContact.userphone}
           </p>
           <p>
-            <Icon name="keyboard" /> {data.useremail}
+            <Icon name="keyboard" /> {context.userContact.useremail}
           </p>
           <p>
             <Icon name="envelope" />
-            {data.useraddress} {data.usercity},{data.userState} {data.userzip}
+            {context.userContact.useraddress} {context.userContact.usercity},{context.userContact.userState} {context.userContact.userzip}
           </p>
         </div>
       </div>
     </div>
   );
+
+  
 };
 
 

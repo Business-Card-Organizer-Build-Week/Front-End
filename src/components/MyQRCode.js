@@ -1,9 +1,11 @@
 import React from 'react';
+import QRCode from 'qrcode.react';
 
 const MyQRCode = () => {
     return(
         <div>
-            This will house the user's QR code. There will be an onClick which routes back to the user's business card. 
+            <QRCode value="https://www.google.com/"/>
+            
         </div>
     )
 }

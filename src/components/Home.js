@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Route } from "react-router-dom";
 import MyCard from "./MyCard";
 import CardCollection from "./CardCollection";
@@ -6,6 +6,9 @@ import AddCard from "./AddCard";
 import Navbar from "./Navbar";
 import { axiosWithAuth } from "./axiosWithAuth";
 import PrivateRoute from "./PrivateRoute";
+
+// import context
+import { UserContext } from '../contexts/UserContext';
 
 // Need id off props from somewhere
 
@@ -30,43 +33,43 @@ import PrivateRoute from "./PrivateRoute";
 // };
 
 const Home = () => {
+  const context = useContext(UserContext); // init context
+  
   const [card, setCard] = useState([]);
-  const [contacts, setContacts] = useState([]);
-  const [fetch, setFetch] = useState(true);
-  const id = localStorage.getItem("USERID");
+  const [userContact, setUserContacts] = useState({});
+  const [savedContacts, setSavedContacts] = useState({});
+
+ 
   useEffect(() => {
-    console.log('useEffect fired!')
+    const id = localStorage.getItem("USERID");
     axiosWithAuth()
       .get(`https://cardorganizer.herokuapp.com/api/users/user/${id}`)
       .then(res => {
-        // console.log("card res", res.data.savedContacts.userContact);
-        setCard(res.data);
-        console.log("what is saved contacts?",card);
-        setContacts(res.data.savedContacts);
-        // console.log("contacts in axios",contacts);
-        setFetch(false);
-        // console.log("inside axios home", card);
+        // console.log(res.data);
+        let saved = res.data.savedContacts;
+        let user = res.data.userContacts[0];
+        setUserContacts(user);
+        setSavedContacts(saved);
       })
       .catch(err => {
         console.error("Error", err);
       });
   },[]);
-  // setTimeout(()=>{
-  //     setFetch(!fetch)
-  // }, 2000)
-  console.log("this is the current card", card);
-  console.log("this is the current card's contacts:", contacts);
+
   return (
     <div className="pagebox">
+      <UserContext.Provider value={{userContact, savedContacts}}>
       <Navbar />
-      <Route exact path="/home" render={() => <MyCard card={card} />} />
+      <Route exact path="/home" render={() => <MyCard />} />
       <Route
         path="/home/collection"
-        render={() => <CardCollection contacts={contacts} />}
+        render={() => <CardCollection />}
       />
       <Route path="/home/add" render={() => <AddCard />} />
+      </UserContext.Provider>
     </div>
   );
 };
 
 export default Home;
+

@@ -1,24 +1,20 @@
-import React from 'react';
-import CardStyle2 from './CardStyle2';
+import React, { useContext } from "react";
+import CardStyle2 from "./CardStyle2";
 
+// import react
+import { UserContext } from "../contexts/UserContext";
 
-// commenting this out so I can use fake data until internet is back up
-// const CardCollection = ({contacts}) => {
-//     return(
-//         <div>
-//            {[contacts].map(contact => (
-//                <CardStyle2 data={contact} />))}
-//         </div>
-//     )
-// }
+const CardCollection = () => {
+  const context = useContext(UserContext);
+  console.log("checking context: ", context.savedContacts);
 
-const CardCollection = contacts => {
-    return(
-        <div className='collection'>
-           {contacts.map(contact => (
-               <CardStyle2 data={contact} />))}
-        </div>
-    )
-}
+  return (
+    <div className="collection">
+      {context.savedContacts.map((card) => (
+        <CardStyle2 />
+      ))}
+    </div>
+  );
+};
 
-export default CardCollection
+export default CardCollection;
