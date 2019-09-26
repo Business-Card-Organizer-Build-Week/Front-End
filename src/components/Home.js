@@ -35,7 +35,7 @@ import { UserContext } from '../contexts/UserContext';
 const Home = () => {
   const context = useContext(UserContext); // init context
   
-  const [card, setCard] = useState([]);
+  
   const [userContact, setUserContacts] = useState({});
   const [savedContacts, setSavedContacts] = useState({});
 
@@ -45,9 +45,10 @@ const Home = () => {
     axiosWithAuth()
       .get(`https://cardorganizer.herokuapp.com/api/users/user/${id}`)
       .then(res => {
-        // console.log(res.data);
+        localStorage.setItem("CONTACTID",res.data.userContacts[0].contactid);
         let saved = res.data.savedContacts;
         let user = res.data.userContacts[0];
+        
         setUserContacts(user);
         setSavedContacts(saved);
       })

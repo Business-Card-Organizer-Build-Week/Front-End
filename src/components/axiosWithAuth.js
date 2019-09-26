@@ -5,7 +5,7 @@ export const axiosWithAuth = () => {
     return axios.create({
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': 'application/json'
         }
     })
 }
