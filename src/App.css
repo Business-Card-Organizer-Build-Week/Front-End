@@ -148,18 +148,22 @@ hr{
   .form-style button{
     text-decoration: none;
     padding: 0;
-    border: none;
     font: inherit;
-    color: inherit;
-    background-color: transparent;
+    color: white;
+    background-color: #4c5e6e;
     cursor: pointer;
     display: inline-block;
     text-align: center;
     margin: 5px;
     padding: .5em 1em;
-    
-  }
 
+  }
+  .form-style button:hover{
+    
+    border: 1px solid #4c5e6e;
+    color: #0A0908;
+    background-color: #F2F4F3;
+  }
   .form-style p{
     text-align: center;
     margin-top: 20px;
