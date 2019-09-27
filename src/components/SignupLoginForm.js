@@ -70,7 +70,7 @@ export const FormikLoginForm = withFormik({
             `https://cardorganizer.herokuapp.com/api/users/name/${values.username}`
           )
           .then(res => {
-            console.log("response", res);
+            console.log("response", res );
             localStorage.setItem("USERID", res.data.userid);
             // localStorage.setItem("USERID", )
             props.history.push("/home");

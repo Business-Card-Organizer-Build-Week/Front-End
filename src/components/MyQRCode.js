@@ -2,9 +2,11 @@ import React from 'react';
 import QRCode from 'qrcode.react';
 
 const MyQRCode = () => {
+    const contactid = localStorage.getItem("CONTACTID")
     return(
-        <div className='card'>
-            <QRCode value="https://www.google.com/"/>
+        <div>
+            
+            <QRCode value={contactid}/>
             
         </div>
     )
