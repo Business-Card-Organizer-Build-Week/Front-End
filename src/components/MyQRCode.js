@@ -3,7 +3,7 @@ import QRCode from 'qrcode.react';
 
 const MyQRCode = () => {
     return(
-        <div>
+        <div className='card'>
             <QRCode value="https://www.google.com/"/>
             
         </div>
