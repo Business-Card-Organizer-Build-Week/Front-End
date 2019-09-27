@@ -4,52 +4,57 @@ import { axiosWithAuth } from "./axiosWithAuth";
 
 const EditCardForm = () => {
   return (
+    <div className='edit-background'>
     <div className="edit-form">
-      <Form>
-        <h2>Edit Your Card</h2>
-        <label>
-          First Name:
-          <Field type="text" name="fname" />
-        </label>
-        <label>
-          Last Name:
-          <Field type="text" name="lname" />
-        </label>
-        <label>
-          Title:
-          <Field type="text" name="title" />
-        </label>
-        <label>
-          Company:
-          <Field type="text" name="busname" />
-        </label>
-        <label>
-          Phone:
-          <Field type="tel" name="userphone" />
-        </label>
-        <label>
-          Email:
-          <Field type="email" name="useremail" />
-        </label>
-        <label>
-          Address:
-          <Field type="text" name="useraddress" />
-        </label>
-        <label>
-          City:
-          <Field type="text" name="usercity" />
-        </label>
-        <label>
-          State:
-          <Field type="text" name="userState" />
-        </label>
-        <label>
-          Zip Code:
-          <Field type="text" name="userzip" />
-        </label>
-        <button type='submit'>Submit</button> <button>Cancel</button>
-      </Form>
+    <Form>
+    <div className='edit-form-header'>
+    <h2>Edit Your Card</h2>
     </div>
+    <div className='edit-form-body'><label>
+    First Name:
+    <Field className='fields' type="text" name="fname" />
+    </label>
+    <label>
+    Last Name:
+    <Field  className='fields' type="text" name="lname" />
+    </label>
+    <label>
+    Title:
+    <Field className='fields' type="text" name="title" />
+    </label>
+    <label>
+    Company:
+    <Field className='fields' type="text" name="busname" />
+    </label>
+    <label>
+    Phone:
+    <Field className='fields' type="tel" name="userphone" />
+    </label>
+    <label>
+    Email:
+    <Field className='fields' type="email" name="useremail" />
+    </label>
+    <label>
+    Address:
+    <Field className='fields' type="text" name="useraddress" />
+    </label>
+    <label>
+    City:
+    <Field className='fields' type="text" name="usercity" />
+    </label>
+    <label>
+    State:
+    <Field className='fields' type="text" name="userState" />
+    </label>
+    <label>
+    Zip Code:
+    <Field className='fields' type="text" name="userzip" />
+    </label></div>
+    <div className='edit-form-footer'>
+    <button type='submit'>Submit</button> <button>Cancel</button>
+    </div>
+    </Form>
+    </div></div>
   );
 };
 

@@ -25,7 +25,14 @@ img {
   height: auto;
 }
 
+a, a:hover, a:visited, a:active{
+  color: inherit;
+  text-decoration: none;
+}
+
 /* custom css */
+
+
 
 .pagebox{
   height: 100vh;
@@ -56,6 +63,7 @@ img {
   width: 60vw;
   height:33vh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
 }
 .card-content{
   display: flex;
@@ -171,4 +179,51 @@ hr{
     font-style: italic;
     font-weight: bold;
   }
-  
+ 
+ .edit-background{
+  background-color: #4c5e6e;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } 
+.edit-form{
+font-family: 'Questrial', Sans-Serif;
+width: 85%;
+background-color: #F2F4F3; 
+}
+
+.edit-form-header h2{
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.edit-form-body {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.edit-form-footer button{
+  text-decoration: none;
+  padding: 0;
+  font: inherit;
+  color: white;
+  background-color: #4c5e6e;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  margin: 5px;
+  padding: .5em 1em;
+}
+
+.edit-form-footer button:hover{
+  border: 1px solid #4c5e6e;
+  color: #0A0908;
+  background-color: #F2F4F3;
+}

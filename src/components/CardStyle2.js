@@ -15,8 +15,8 @@ console.log(context)
   // console.log("cardstyle datachecK",data);
   return (
     <div className="card">
-      <Link to='/editform'>
-      <Icon name="edit" size="big" />
+      <Link to='/editform' className='edit-icon'>
+      <Icon name="edit" size="small" />
       </Link>
      
       
