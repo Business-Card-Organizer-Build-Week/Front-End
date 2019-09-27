@@ -11,9 +11,10 @@ const AddCard = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const id = localStorage.getItem("USERID");
+    console.log("add",input);
     axiosWithAuth()
       .post(
-        `https://cardorganizer.herokuapp.com/api/users/${id}/contact/${input}`
+        `https://cardorganizer.herokuapp.com/api/users/${id}/contact/11`
       )
       .then(res => {
         console.log(res);
